@@ -20,7 +20,7 @@ else()
 endif()
 
 # Указываем путь к папке _common
-set(COMMON_PATH "${CMAKE_SOURCE_DIR}/../_common")
+set(COMMON_PATH "./../_common")
 
 # Исходные файлы
 set(SRC_FILES

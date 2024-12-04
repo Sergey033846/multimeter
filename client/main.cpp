@@ -16,7 +16,7 @@ int main() {
 
     std::cout << "Starting client...\n";
 
-    if (!client.connectToServer()) {
+    if (!client.connect_to_server()) {
         std::cerr << "Failed to connect to server\n";
         return 1;
     }
@@ -43,12 +43,12 @@ int main() {
             continue;
         }
 
-        if (!client.sendCommand(command)) {
+        if (!client.send_command(command)) {
             std::cerr << "Failed to send command" << std::endl;
             continue;
         }
 
-        std::string response = client.receiveResponse();
+        std::string response = client.receive_response();
         if (response.empty()) {
             std::cerr << "Failed to receive response or connection closed by server" << std::endl;
             break;
