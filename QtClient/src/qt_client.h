@@ -13,22 +13,11 @@ public:
     ~Client();
 
     Q_INVOKABLE void connectToServer();
-    Q_INVOKABLE void sendCommand(const QString &command);
-
-signals:
-    void statusChanged(const QString &status);
-    void commandResponse(const QString &response);    
-    void updateChannelText(int channelIndex, const QString &status);
-
+    Q_INVOKABLE QString sendCommand(const QString &command);
 
 private:
-    void handleResponse(const QString &response);
-    void onErrorOccurred(QLocalSocket::LocalSocketError error);  // Используем правильный тип
-    void onConnected();   // Новый слот для подключения
-    void onDisconnected(); // Добавляем слот для обработки отключения
-
     QLocalSocket *socket;
-    bool isConnected;     // Флаг для проверки подключения
+    bool isConnected;    
 
     static const QString SOCKET_PATH;
 };
